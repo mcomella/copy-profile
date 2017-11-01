@@ -13,7 +13,7 @@ function LOG(msg) {
 // Copies the current profile to the sdcard
 function copyProfile() {
   // If we previously copied the profile to the sdcard, remove it first.
-  let sdcardProfileDir = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+  let sdcardProfileDir = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
   sdcardProfileDir.initWithPath("/sdcard/mozilla_profile");
 
   if (sdcardProfileDir.exists()) {
@@ -21,7 +21,7 @@ function copyProfile() {
     LOG("Removed /sdcard/mozilla_profile");
   }
 
-  let sdcardDir = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+  let sdcardDir = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
   sdcardDir.initWithPath("/sdcard");
 
   let profileDir = FileUtils.getDir("ProfD", [], false);
